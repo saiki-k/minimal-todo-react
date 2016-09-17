@@ -2,9 +2,8 @@ import Todo from './Todo';
 import * as _ from 'lodash';
 
 export default class TodoDataInterface {
-    todos = [];
-
     constructor() {
+        this.todos = [];
         this.loadFromLocalStorage();
     }
 
