@@ -4,7 +4,7 @@ import VisibleTodoList from './VisibleTodoList';
 export default class TodoApp extends React.Component {
     constructor(props) {
         super(props);
-        this.visibilityFilters = ["ALL_TODOS", "LEFT_TODOS", "COMPLETED_TODOS"]
+        this.visibilityFilters = ["ALL_TODOS", "LEFT_TODOS", "COMPLETED_TODOS"];
         this.state = {
             todos: this.props.dataInterface.getAllTodos(),
             visibilityFilter: "ALL_TODOS"
