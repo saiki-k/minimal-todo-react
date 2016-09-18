@@ -70,7 +70,12 @@ export default class TodoApp extends React.Component {
                     {
                         this.visibilityFilters.map(
                             visibilityFilter =>
-                                <button key={visibilityFilter} onClick={this.changeVisibilityFilter} data-id={visibilityFilter}>{visibilityFilter.replace("_", " ")}</button>
+                                <button
+                                    key={visibilityFilter}
+                                    onClick={this.changeVisibilityFilter}
+                                    data-id={visibilityFilter}>
+                                        {visibilityFilter.replace("_", " ")}
+                                </button>
                         )
                     }
                 </div>

@@ -1,5 +1,5 @@
 import Todo from './Todo';
-import * as _ from 'lodash';
+import { findIndex } from 'lodash';
 
 export default class TodoDataInterface {
     constructor() {
@@ -32,7 +32,7 @@ export default class TodoDataInterface {
     }
 
     archiveToggleTodo(todoId) {
-        const todoIndex = _.findIndex(this.todos, (todo) => todo.id === todoId);
+        const todoIndex = findIndex(this.todos, (todo) => todo.id === todoId);
         if (todoIndex > -1) {
             this.todos[todoIndex].isDone = !this.todos[todoIndex].isDone
         }
@@ -40,7 +40,7 @@ export default class TodoDataInterface {
     }
 
     removeTodo(todoId) {
-        const todoIndex = _.findIndex(this.todos, (todo) => todo.id === todoId);
+        const todoIndex = findIndex(this.todos, (todo) => todo.id === todoId);
         if (todoIndex > -1) {
             this.todos.splice(todoIndex, 1);
         }
