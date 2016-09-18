@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import TodoDataInterface from './lib/TodoDataInterface';
-import TodoApp from './components/TodoApp';
+import initializeStore from './store/initializeStore';
+import TodoApp from './components/TodoApp/';
 
-const todoDataInterface = new TodoDataInterface();
-ReactDOM.render(<TodoApp dataInterface={todoDataInterface}/>, document.getElementById('app'));
+const store = initializeStore();
+ReactDOM.render(<TodoApp store={store}/>, document.getElementById('app'));
