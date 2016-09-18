@@ -1,12 +1,17 @@
+import { observable, action } from 'mobx';
 import Todo from './Todo';
 import { findIndex } from 'lodash';
 
 export default class TodoDataInterface {
+    @observable todos = [];
+
     constructor() {
-        this.todos = [];
         this.loadFromLocalStorage();
+        this.archiveToggleTodo = this.archiveToggleTodo.bind(this);
+        this.removeTodo = this.removeTodo.bind(this);
     }
 
+    @action
     saveToLocalStorage() {
         if (window.localStorage && this.todos) {
             let jsonTodos = this.todos.map(todo => todo.serialize());
@@ -14,6 +19,7 @@ export default class TodoDataInterface {
         }
     }
 
+    @action
     loadFromLocalStorage() {
         if (window.localStorage) {
             let todos = localStorage.getItem('minimalReactTodos');
@@ -24,14 +30,19 @@ export default class TodoDataInterface {
         }
     }
 
+    @action
     addTodo(descriptionText) {
-        const newTodo = new Todo(descriptionText);
-        this.todos.push(newTodo);
-        this.saveToLocalStorage();
-        return newTodo;
+        if (descriptionText) {
+            const newTodo = new Todo(descriptionText);
+            this.todos.push(newTodo);
+            this.saveToLocalStorage();
+            return newTodo;
+        }
     }
 
+    @action
     archiveToggleTodo(todoId) {
+        console.log(this);
         const todoIndex = findIndex(this.todos, (todo) => todo.id === todoId);
         if (todoIndex > -1) {
             this.todos[todoIndex].isDone = !this.todos[todoIndex].isDone
@@ -39,15 +50,12 @@ export default class TodoDataInterface {
         this.saveToLocalStorage();
     }
 
+    @action
     removeTodo(todoId) {
         const todoIndex = findIndex(this.todos, (todo) => todo.id === todoId);
         if (todoIndex > -1) {
             this.todos.splice(todoIndex, 1);
         }
         this.saveToLocalStorage();
-    }
-
-    getAllTodos() {
-        return this.todos.map(todo => todo);
     }
 }
