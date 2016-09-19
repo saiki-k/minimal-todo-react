@@ -52,7 +52,7 @@ export default class TodoApp extends React.Component {
 
         return (
             <div>
-                <h2> Down and Dirty TodoApp built with React </h2>
+                <h2> Minimal Todo App built with React </h2>
                 <input
                     type="text"
                     placeholder="What do you want todo?"
@@ -66,7 +66,6 @@ export default class TodoApp extends React.Component {
                     removeTodo={this.removeTodo}
                 />
                 <div>
-                    SHOW:
                     {
                         this.visibilityFilters.map(
                             visibilityFilter =>
