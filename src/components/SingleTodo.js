@@ -8,7 +8,7 @@ export default class SingleTodo extends React.Component {
             <li>
                 <input
                     checked={this.props.isDone}
-                    onChange={() => this.props.archiveToggleTodo(this.props.todoId)}
+                    onChange={() => this.props.completeTodo(this.props.todoId)}
                     type="checkbox"/>
                 <label>{this.props.text}{this.props.isDone? " - DONE": ""}</label>
                 <button

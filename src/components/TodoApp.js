@@ -6,8 +6,8 @@ import VisibleTodoList from './VisibleTodoList';
 @observer
 export default class TodoApp extends React.Component {
 
-    @observable visibilityFilter = "LEFT_TODOS"
-    visibilityFilters = ["ALL_TODOS", "LEFT_TODOS", "COMPLETED_TODOS"];
+    @observable visibilityFilter = "ACTIVE_TODOS"
+    visibilityFilters = ["ALL_TODOS", "ACTIVE_TODOS", "COMPLETED_TODOS"];
 
     changeVisibilityFilter = visibilityFilter => {
         this.visibilityFilter = visibilityFilter;
@@ -17,7 +17,7 @@ export default class TodoApp extends React.Component {
         switch (this.visibilityFilter) {
             case "ALL_TODOS":
                 return this.props.dataInterface.todos;
-            case "LEFT_TODOS":
+            case "ACTIVE_TODOS":
                 return this.props.dataInterface.todos.filter(todo => todo.isDone === false);
             case "COMPLETED_TODOS":
                 return this.props.dataInterface.todos.filter(todo => todo.isDone === true);
@@ -29,7 +29,7 @@ export default class TodoApp extends React.Component {
     render() {
         return (
             <div>
-                <h2> Down and Dirty TodoApp built with React </h2>
+                <h2> Minimal TodoApp built with React and MobX </h2>
                 <input
                     type="text"
                     placeholder="What do you want todo?"
@@ -45,7 +45,7 @@ export default class TodoApp extends React.Component {
                 <VisibleTodoList
                     visibleTodos={this.visibleTodos}
                     visibilityFilter = {this.visibilityFilter}
-                    archiveToggleTodo={this.props.dataInterface.archiveToggleTodo}
+                    completeTodo={this.props.dataInterface.completeTodo}
                     removeTodo={this.props.dataInterface.removeTodo}
                 />
                 <div>

@@ -7,7 +7,7 @@ export default class TodoDataInterface {
 
     constructor() {
         this.loadFromLocalStorage();
-        this.archiveToggleTodo = this.archiveToggleTodo.bind(this);
+        this.completeTodo = this.completeTodo.bind(this);
         this.removeTodo = this.removeTodo.bind(this);
     }
 
@@ -41,8 +41,7 @@ export default class TodoDataInterface {
     }
 
     @action
-    archiveToggleTodo(todoId) {
-        console.log(this);
+    completeTodo(todoId) {
         const todoIndex = findIndex(this.todos, (todo) => todo.id === todoId);
         if (todoIndex > -1) {
             this.todos[todoIndex].isDone = !this.todos[todoIndex].isDone
