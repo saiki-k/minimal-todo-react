@@ -5,12 +5,12 @@ import { observer } from 'mobx-react';
 export default class SingleTodo extends React.Component {
     render() {
         return (
-            <li>
+            <li class={this.props.isDone? "done": ""}>
                 <input
                     checked={this.props.isDone}
                     onChange={() => this.props.completeTodo(this.props.todoId)}
                     type="checkbox"/>
-                <label>{this.props.text}{this.props.isDone? " - DONE": ""}</label>
+                <label>{this.props.text}</label>
                 <button
                     onClick={() => this.props.removeTodo(this.props.todoId)}>
                         Delete

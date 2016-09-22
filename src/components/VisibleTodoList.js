@@ -25,7 +25,9 @@ export default class VisibleTodoList extends React.Component {
                     </ul>
                 ):
                 (
-                    "No Todos to show"
+                    <ul>
+                        <li>"No Todos to show"</li>
+                    </ul>
                 )
             }
             </div>
