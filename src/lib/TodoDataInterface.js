@@ -31,7 +31,7 @@ export default class TodoDataInterface {
         return newTodo;
     }
 
-    archiveToggleTodo(todoId) {
+    completeTodo(todoId) {
         const todoIndex = findIndex(this.todos, (todo) => todo.id === todoId);
         if (todoIndex > -1) {
             this.todos[todoIndex].isDone = !this.todos[todoIndex].isDone

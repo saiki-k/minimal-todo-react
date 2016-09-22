@@ -4,7 +4,7 @@ import VisibleTodoList from './VisibleTodoList';
 export default class TodoApp extends React.Component {
     constructor(props) {
         super(props);
-        this.visibilityFilters = ["ALL_TODOS", "LEFT_TODOS", "COMPLETED_TODOS"];
+        this.visibilityFilters = ["ALL_TODOS", "ACTIVE_TODOS", "COMPLETED_TODOS"];
         this.state = {
             todos: this.props.dataInterface.getAllTodos(),
             visibilityFilter: "ALL_TODOS"
@@ -19,8 +19,8 @@ export default class TodoApp extends React.Component {
         }
     }
 
-    archiveToggleTodo = e => {
-        this.props.dataInterface.archiveToggleTodo(e.target.dataset.id);
+    completeTodo = e => {
+        this.props.dataInterface.completeTodo(e.target.dataset.id);
         this.setState({todos: this.props.dataInterface.getAllTodos()});
     }
 
@@ -37,7 +37,7 @@ export default class TodoApp extends React.Component {
         switch (this.state.visibilityFilter) {
             case "ALL_TODOS":
                 return this.state.todos;
-            case "LEFT_TODOS":
+            case "ACTIVE_TODOS":
                 return this.state.todos.filter(todo => todo.isDone === false);
             case "COMPLETED_TODOS":
                 return this.state.todos.filter(todo => todo.isDone === true);
@@ -62,7 +62,7 @@ export default class TodoApp extends React.Component {
                 <VisibleTodoList
                     visibleTodos={visibleTodos}
                     visibilityFilter = {this.state.visibilityFilter}
-                    archiveToggleTodo={this.archiveToggleTodo}
+                    completeTodo={this.completeTodo}
                     removeTodo={this.removeTodo}
                 />
                 <div>
