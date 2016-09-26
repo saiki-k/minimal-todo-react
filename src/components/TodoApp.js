@@ -19,18 +19,18 @@ export default class TodoApp extends React.Component {
         }
     }
 
-    completeTodo = e => {
-        this.props.dataInterface.completeTodo(e.target.dataset.id);
+    completeTodo = todoId => {
+        this.props.dataInterface.completeTodo(todoId);
         this.setState({todos: this.props.dataInterface.getAllTodos()});
     }
 
-    removeTodo = e => {
-        this.props.dataInterface.removeTodo(e.target.dataset.id);
+    removeTodo = todoId => {
+        this.props.dataInterface.removeTodo(todoId);
         this.setState({todos: this.props.dataInterface.getAllTodos()});
     }
 
-    changeVisibilityFilter = e => {
-        this.setState({visibilityFilter: e.target.dataset.id});
+    changeVisibilityFilter = visibilityFilter => {
+        this.setState({visibilityFilter: visibilityFilter});
     }
 
     visibleTodos = () => {
@@ -71,8 +71,7 @@ export default class TodoApp extends React.Component {
                             visibilityFilter =>
                                 <button
                                     key={visibilityFilter}
-                                    onClick={this.changeVisibilityFilter}
-                                    data-id={visibilityFilter}>
+                                    onClick={() => this.changeVisibilityFilter(visibilityFilter)}>
                                         {visibilityFilter.replace("_", " ")}
                                 </button>
                         )
