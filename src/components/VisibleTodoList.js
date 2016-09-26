@@ -16,14 +16,16 @@ export default class VisibleTodoList extends React.Component {
                                     todoId={todo.id}
                                     text={todo.descriptionText}
                                     isDone={todo.isDone}
-                                    archiveTodo={this.props.archiveTodo}
+                                    completeTodo={this.props.completeTodo}
                                     removeTodo={this.props.removeTodo}
                                 />
                         )}
                     </ul>
                 ):
                 (
-                    "No Todos to show"
+                    <ul>
+                        <li>Nothing here 🙈🐘</li>
+                    </ul>
                 )
             }
             </div>

@@ -25,7 +25,7 @@ export default class TodoApp extends React.Component {
             visibilityFilter,
             addTodo,
             removeTodo,
-            archiveTodo,
+            completeTodo,
             changeVisibilityFilter
         } = this.props;
 
@@ -46,7 +46,7 @@ export default class TodoApp extends React.Component {
                 <VisibleTodoList
                     visibleTodos={visibleTodosArray}
                     visibilityFilter = {visibilityFilter}
-                    archiveTodo={archiveTodo}
+                    completeTodo={completeTodo}
                     removeTodo={removeTodo}
                 />
                 <div>

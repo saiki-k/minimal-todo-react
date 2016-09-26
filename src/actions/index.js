@@ -14,9 +14,9 @@ export function removeTodo(todoId) {
     }
 }
 
-export function archiveTodo(todoId) {
+export function completeTodo(todoId) {
     return {
-        type: actionTypes.ARCHIVE_TODO,
+        type: actionTypes.COMPLETE_TODO,
         todoId
     }
 }

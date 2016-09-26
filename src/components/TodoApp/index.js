@@ -16,7 +16,7 @@ function mapDispatchToProps(dispatch) {
     return {
         addTodo: bindActionCreators(actions.addTodo, dispatch),
         removeTodo: bindActionCreators(actions.removeTodo, dispatch),
-        archiveTodo: bindActionCreators(actions.archiveTodo, dispatch),
+        completeTodo: bindActionCreators(actions.completeTodo, dispatch),
         changeVisibilityFilter: bindActionCreators(actions.changeVisibilityFilter, dispatch)
     }
 }
