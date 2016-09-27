@@ -1,1 +1,1 @@
-export default ["ALL_TODOS", "LEFT_TODOS", "COMPLETED_TODOS"];
+export default ["ALL_TODOS", "ACTIVE_TODOS", "COMPLETED_TODOS"];

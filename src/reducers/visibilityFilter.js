@@ -1,6 +1,6 @@
 import * as actionTypes from '../constants/actionTypes';
 
-const initialState = "LEFT_TODOS";
+const initialState = "ACTIVE_TODOS";
 
 export default function visibilityFilter(state = initialState, action) {
     switch (action.type) {

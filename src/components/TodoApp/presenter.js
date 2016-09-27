@@ -8,7 +8,7 @@ function visibleTodos(todos, visibilityFilter) {
     switch (visibilityFilter) {
         case "ALL_TODOS":
             return todos;
-        case "LEFT_TODOS":
+        case "ACTIVE_TODOS":
             return todos.filter(todo => todo.isDone === false);
         case "COMPLETED_TODOS":
             return todos.filter(todo => todo.isDone === true);
