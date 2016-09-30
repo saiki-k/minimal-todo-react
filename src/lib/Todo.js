@@ -1,5 +1,3 @@
-import { observable } from 'mobx';
-
 // Helper function for generating unique IDs
 function guidGenerator() {
   function S4() {
@@ -11,8 +9,6 @@ function guidGenerator() {
 }
 
 export default class Todo {
-
-    @observable isDone;
 
     constructor(descriptionText, isDone, id) {
         this.descriptionText = descriptionText || '';
