@@ -1,3 +1,5 @@
+import { observable } from 'mobx';
+
 // Helper function for generating unique IDs
 function guidGenerator() {
   function S4() {
@@ -10,12 +12,13 @@ function guidGenerator() {
 
 export default class Todo {
 
+    @observable isDone;
+
     constructor(descriptionText, isDone, id) {
         this.descriptionText = descriptionText || '';
         this.isDone = isDone || false;
         this.id = id || guidGenerator();
     }
-
 
     // simple serialize, and deserialize methods for localStorage
     serialize() {
