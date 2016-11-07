@@ -5,7 +5,7 @@ import { observer } from 'mobx-react';
 export default class SingleTodo extends React.Component {
     render() {
         return (
-            <li class={this.props.isDone? "done": ""}>
+            <li className={this.props.isDone? "done": ""}>
                 <input
                     checked={this.props.isDone}
                     onChange={() => this.props.completeTodo(this.props.todoId)}
